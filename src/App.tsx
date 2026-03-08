@@ -1,26 +1,43 @@
-import { Header } from "@/components/layout/header";
-import { Sidebar } from "@/components/layout/sidebar";
-import { ThemeProvider } from "./components/theme-provider";
+import { Outlet } from "react-router-dom";
+import { toast } from "sonner";
+import { Header } from "./components/layout/header";
+import { Sidebar } from "./components/layout/sidebar";
+import { Button } from "./components/ui/button";
 
 function App() {
   return (
-    <ThemeProvider>
-      <div className="flex min-h-screen bg-background text-foreground">
-        {/* Sidebar */}
-        <Sidebar />
+    <div className="flex min-h-screen bg-background text-foreground">
+      <Sidebar />
 
-        {/* Conteúdo */}
-        <div className="flex flex-1 flex-col">
-          {/* Header */}
-          <Header />
+      {/* Conteúdo */}
+      <div className="flex flex-1 flex-col">
+        <Button
+          className="cursor-pointer transition hover:opacity-80"
+          onClick={() => {
+            toast("Event has been created.");
+          }}
+        >
+          Criar evento
+        </Button>
 
-          {/* Conteúdo da página */}
-          <main className="flex-1 p-6">
-Conteudo
-          </main>
-        </div>
+        {/* Header */}
+        <Header />
+        <Button
+          className="cursor-pointer"
+          onClick={() => {
+            toast("Event has been created.");
+          }}
+        ></Button>
+        <Button
+          variant="outline"
+          onClick={() => toast.success("Event has been created")}
+        >
+          Success
+        </Button>
+        <h1>APP</h1>
+        <Outlet />
       </div>
-    </ThemeProvider>
+    </div>
   );
 }
 
