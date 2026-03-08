@@ -20,4 +20,7 @@
   "include": [
     "src"
   ],
+  "types": [
+    "vite/client"
+  ]
 }
