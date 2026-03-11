@@ -1,5 +1,5 @@
 import App from "@/App";
-import QuotePage from "@/features/quote/pages";
+import { LandingPage } from "@/pages/landing-page";
 import NotFound from "@/pages/not-found";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -10,8 +10,8 @@ export const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       {
-        path: "/quote",
-        element: <QuotePage />,
+        path: "/",
+        element: <LandingPage />,
       },
     ],
   },
