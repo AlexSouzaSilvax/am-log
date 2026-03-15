@@ -1,15 +1,21 @@
 import { tabs } from '@/config/tabs-navigation';
 import { motion } from 'framer-motion';
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export function Sidebar() {
+  const navigate = useNavigate();
   return (
-    <div className="hidden md:block border-b">
+    <div className="hidden md:block ">
       <nav className="flex gap-8">
         {tabs.map((tab) => (
           <NavLink
             key={tab.to}
             to={tab.to}
+            onClick={() => {
+              navigate(tab.to);
+              window.location.reload()
+            }
+          }
             className="relative pb-3 text-sm font-medium text-muted-foreground hover:text-foreground"
           >
             {({ isActive }) => (

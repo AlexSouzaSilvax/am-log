@@ -6,8 +6,10 @@ function App() {
   return (
     <div className="flex min-h-screen bg-background text-foreground">
       <div className="flex flex-1 flex-col">
-        <Header />
-        <Outlet />        
+        <div className="hidden md:block">
+          <Header />
+        </div>
+        <Outlet />
       </div>
 
       <div className="md:hidden">

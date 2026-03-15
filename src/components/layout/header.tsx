@@ -2,6 +2,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Truck } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { Sidebar } from "../navigation/sidebar";
 
 export function Header() {
   const navigate = useNavigate();
@@ -13,14 +14,21 @@ export function Header() {
   };
 
   return (
-    <header className="flex items-center justify-between border-b p-4">
-      <div>
+    <header className="flex relative justify-between p-4 min-h-20">
+      <div className="flex flex-row">
         <div
-          className="flex flex-row gap-1 hover:cursor-pointer"
-          onClick={() => navigate("/")}
+          className="flex items-center gap-2 hover:cursor-pointer"
+          onClick={() => {
+            navigate("/");
+            window.location.reload();
+          }}
         >
           <Truck size={26} />
           <h1 className="title font-semibold text-xl">AM Log</h1>
+        </div>
+        
+        <div className="absolute bottom-0 left-50 mb-5">
+          <Sidebar />
         </div>
       </div>
 

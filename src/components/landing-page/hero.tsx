@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { NovaIguacuMap } from "../ui/nova-iguacu-map";
 import { TruckAnimated } from "./truck-animated";
 
 export function Hero() {
+  const navigate = useNavigate();
   return (
     <section className="relative min-h-screen flex items-start pt-28 overflow-hidden">
       
@@ -21,7 +23,7 @@ export function Hero() {
           </p>
 
           <div className="flex justify-center md:justify-start items-center gap-4">
-            <button className="bg-white text-black px-6 py-3 rounded-lg font-medium hover:scale-105 transition cursor-pointer">
+            <button onClick={() => navigate("/budgets")} className="bg-white text-black px-6 py-3 rounded-lg font-medium hover:scale-105 transition cursor-pointer">
               Criar Cotação
             </button>
           </div>
