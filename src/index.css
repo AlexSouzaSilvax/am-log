@@ -5,6 +5,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -126,4 +131,70 @@
   html {
     @apply font-sans;
   }
+}
+
+.title {
+  font-family: "Geist", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.label {
+  font-weight: 500;
+}
+
+.text {
+  font-weight: 400;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--scroll-thumb) 80%, white);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+
+@keyframes route {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+.animate-route {
+  animation: route 25s linear infinite;
+}
+
+@keyframes truckMove {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(200px, -200px);
+  }
+
+  100% {
+    transform: translate(450px, -120px);
+  }
+}
+
+.animate-truck {
+  animation: truckMove 10s ease-in-out infinite;
 }
